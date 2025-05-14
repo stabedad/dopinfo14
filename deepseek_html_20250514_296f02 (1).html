@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProAutoService - Портфолио</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff6b00;
+            --secondary: #333;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Шапка */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin-top: 3rem;
+        }
+        
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e05d00;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Основные блоки */
+        section {
+            padding: 5rem 2rem;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+        
+        .section-title span {
+            color: var(--primary);
+        }
+        
+        /* О нас */
+        .about {
+            background-color: white;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        /* Услуги */
+        .services {
+            background-color: #f1f1f1;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .service-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        /* Наши работы */
+        .portfolio {
+            background-color: white;
+        }
+        
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 107, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Команда */
+        .team {
+            background-color: #f1f1f1;
+        }
+        
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .member-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .team-member:hover .member-img img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+        }
+        
+        .member-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .member-info p {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Отзывы */
+        .testimonials {
+            background-color: white;
+        }
+        
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+        
+        .testimonial-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .testimonial {
+            min-width: 100%;
+            scroll-snap-align: start;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .testimonial-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .author-info p {
+            color: #666;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .slider-dot.active {
+            background-color: var(--primary);
+        }
+        
+        /* Цены */
+        .pricing {
+            background-color: #f1f1f1;
+        }
+        
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pricing-header {
+            padding: 2rem;
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .pricing-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+        
+        .pricing-body {
+            padding: 2rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        /* FAQ */
+        .faq {
+            background-color: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: #e05d00;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease-out;
+        }
+        
+        .faq-answer-content {
+            padding: 1.5rem;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0;
+        }
+        
+        /* Статистика */
+        .stats {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+        }
+        
+        /* Блог */
+        .blog {
+            background-color: #f1f1f1;
+        }
+        
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .blog-post {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .blog-post:hover .blog-img img {
+            transform: scale(1.1);
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-date {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .read-more {
+            color: var(--primary);
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Контакты */
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .contact-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .contact-text p, .contact-text a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Карта */
+        .map {
+            height: 400px;
+            background-color: #f1f1f1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1493238792000-8113da705763?ixlib=rb-1.2.1&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Подвал */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .footer-col p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Анимации */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            nav {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        /* Кнопка вверх */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background-color: #e05d00;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header id="home">
+        <nav>
+            <div class="logo">Pro<span>Auto</span>Service</div>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#portfolio">Портфолио</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="header-content animate__animated animate__fadeIn">
+            <h1>Профессиональный автосервис</h1>
+            <p>Мы предлагаем полный спектр услуг по ремонту и обслуживанию автомобилей любых марок с гарантией качества и доступными ценами.</p>
+            <a href="#contact" class="btn">Записаться</a>
+        </div>
+    </header>
+
+    <!-- О нас -->
+    <section id="about" class="about">
+        <h2 class="section-title">О <span>нас</span></h2>
+        <div class="about-container">
+            <div class="about-img fade-in">
+                <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Наш автосервис">
+            </div>
+            <div class="about-text fade-in">
+                <h3>Лучший автосервис в городе</h3>
+                <p>Наш автосервис работает на рынке услуг уже более 15 лет. За это время мы заслужили репутацию надежного и профессионального сервиса, который предлагает качественный ремонт автомобилей по доступным ценам.</p>
+                <p>Наши мастера - это высококвалифицированные специалисты с многолетним опытом работы, которые регулярно повышают свою квалификацию и следят за новинками в автомобильной индустрии.</p>
+                <p>Мы используем только оригинальные запчасти и качественные расходные материалы, что гарантирует долговечность выполненных работ.</p>
+                <a href="#services" class="btn">Наши услуги</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <h2 class="section-title">Наши <span>услуги</span></h2>
+        <div class="services-container">
+            <div class="service-card fade-in">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Диагностика">
+                </div>
+                <div class="service-content">
+                    <h3>Компьютерная диагностика</h3>
+                    <p>Полная проверка электронных систем автомобиля с помощью профессионального оборудования. Выявление неисправностей на ранних стадиях.</p>
+                    <a href="#contact" class="btn">Записаться</a>
+                </div>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1551830820-330a71b99659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Техобслуживание">
+                </div>
+                <div class="service-content">
+                    <h3>Техническое обслуживание</h3>
+                    <p>Регулярное ТО согласно регламенту производителя. Замена масла, фильтров, проверка основных узлов и систем автомобиля.</p>
+                    <a href="#contact" class="btn">Записаться</a>
+                </div>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ремонт двигателя">
+                </div>
+                <div class="service-content">
+                    <h3>Ремонт двигателя</h3>
+                    <p>Капитальный и текущий ремонт двигателей любой сложности. Замена ГРМ, ремонт головки блока, замена поршневой группы и другие работы.</p>
+                    <a href="#contact" class="btn">Записаться</a>
+                </div>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ремонт ходовой">
+                </div>
+                <div class="service-content">
+                    <h3>Ремонт ходовой части</h3>
+                    <p>Диагностика и ремонт подвески, замена амортизаторов, шаровых опор, сайлентблоков, рулевых наконечников и других элементов.</p>
+                    <a href="#contact" class="btn">Записаться</a>
+                </div>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ремонт коробки">
+                </div>
+                <div class="service-content">
+                    <h3>Ремонт КПП</h3>
+                    <p>Обслуживание и ремонт механических и автоматических коробок передач. Замена масла, ремонт гидроблоков, замена сцепления.</p>
+                    <a href="#contact" class="btn">Записаться</a>
+                </div>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Кузовной ремонт">
+                </div>
+                <div class="service-content">
+                    <h3>Кузовной ремонт</h3>
+                    <p>Устранение вмятин, покраска, полировка, антикоррозийная обработка. Работаем с любыми типами повреждений кузова.</p>
+                    <a href="#contact" class="btn">Записаться</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Наши работы -->
+    <section id="portfolio" class="portfolio">
+        <h2 class="section-title">Наши <span>работы</span></h2>
+        <div class="portfolio-container">
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Работа 1" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>Ремонт двигателя BMW</h3>
+                    <p>Капитальный ремонт двигателя после перегрева</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Работа 2" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>Диагностика Mercedes</h3>
+                    <p>Полная компьютерная диагностика всех систем</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1551830820-330a71b99659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Работа 3" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>ТО Volkswagen</h3>
+                    <p>Плановое техническое обслуживание</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Работа 4" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>Ремонт подвески Audi</h3>
+                    <p>Замена амортизаторов и сайлентблоков</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Работа 5" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>Ремонт АКПП Toyota</h3>
+                    <p>Замена масла и ремонт гидроблока</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Работа 6" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>Покраска Honda</h3>
+                    <p>Локальная покраска после ДТП</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Команда -->
+    <section id="team" class="team">
+        <h2 class="section-title">Наша <span>команда</span></h2>
+        <div class="team-container">
+            <div class="team-member fade-in">
+                <div class="member-img">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Алексей Петров">
+                </div>
+                <div class="member-info">
+                    <h3>Алексей Петров</h3>
+                    <p>Главный механик</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member fade-in">
+                <div class="member-img">
+                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Иван Сидоров">
+                </div>
+                <div class="member-info">
+                    <h3>Иван Сидоров</h3>
+                    <p>Специалист по двигателям</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member fade-in">
+                <div class="member-img">
+                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Дмитрий Иванов">
+                </div>
+                <div class="member-info">
+                    <h3>Дмитрий Иванов</h3>
+                    <p>Электрик-диагност</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member fade-in">
+                <div class="member-img">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Сергей Кузнецов">
+                </div>
+                <div class="member-info">
+                    <h3>Сергей Кузнецов</h3>
+                    <p>Маляр-кузовщик</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="testimonials">
+        <h2 class="section-title">Отзывы <span>клиентов</span></h2>
+        <div class="testimonials-container">
+            <div class="testimonial-slider" id="testimonialSlider">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Отличный сервис! Привез машину с проблемой двигателя, быстро диагностировали и качественно отремонтировали. Цены адекватные, персонал вежливый. Рекомендую!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Андрей Смирнов">
+                        </div>
+                        <div class="author-info">
+                            <h4>Андрей Смирнов</h4>
+                            <p>Владелец BMW X5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Регулярно обслуживаю здесь свою Toyota. Всегда все по делу, без лишних навязываний услуг. Мастера знают свое дело, цены ниже, чем у официального дилера, а качество на уровне."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Елена Ковалева">
+                        </div>
+                        <div class="author-info">
+                            <h4>Елена Ковалева</h4>
+                            <p>Владелец Toyota Camry</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "После ДТП привез машину на кузовной ремонт. Сделали все качественно и в срок. Цвет подобрали идеально, даже не видно, что была покраска. Спасибо за отличную работу!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Михаил Волков">
+                        </div>
+                        <div class="author-info">
+                            <h4>Михаил Волков</h4>
+                            <p>Владелец Volkswagen Passat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Цены -->
+    <section class="pricing">
+        <h2 class="section-title">Наши <span>цены</span></h2>
+        <div class="pricing-container">
+            <div class="pricing-card fade-in">
+                <div class="pricing-header">
+                    <h3>Базовый</h3>
+                    <div class="price">$50 <span>/мес</span></div>
+                    <p>Для новых клиентов</p>
+                </div>
+                <div class="pricing-body">
+                    <ul class="pricing-features">
+                        <li>Диагностика бесплатно</li>
+                        <li>Скидка 10% на запчасти</li>
+                        <li>Гарантия 3 месяца</li>
+                        <li>Консультация специалиста</li>
+                    </ul>
+                    <a href="#contact" class="btn">Выбрать</a>
+                </div>
+            </div>
+            <div class="pricing-card fade-in">
+                <div class="pricing-header">
+                    <h3>Стандарт</h3>
+                    <div class="price">$100 <span>/мес</span></div>
+                    <p>Для постоянных клиентов</p>
+                </div>
+                <div class="pricing-body">
+                    <ul class="pricing-features">
+                        <li>Диагностика бесплатно</li>
+                        <li>Скидка 15% на запчасти</li>
+                        <li>Гарантия 6 месяцев</li>
+                        <li>Приоритетная запись</li>
+                        <li>Мойка в подарок</li>
+                    </ul>
+                    <a href="#contact" class="btn">Выбрать</a>
+                </div>
+            </div>
+            <div class="pricing-card fade-in">
+                <div class="pricing-header">
+                    <h3>Премиум</h3>
+                    <div class="price">$200 <span>/мес</span></div>
+                    <p>Для корпоративных клиентов</p>
+                </div>
+                <div class="pricing-body">
+                    <ul class="pricing-features">
+                        <li>Диагностика бесплатно</li>
+                        <li>Скидка 20% на запчасти</li>
+                        <li>Гарантия 12 месяцев</li>
+                        <li>Экспресс-обслуживание</li>
+                        <li>Мойка и уборка салона</li>
+                        <li>Подменный автомобиль</li>
+                    </ul>
+                    <a href="#contact" class="btn">Выбрать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <h2 class="section-title">Частые <span>вопросы</span></h2>
+        <div class="faq-container">
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>Как часто нужно проходить ТО?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Частота технического обслуживания зависит от модели автомобиля и условий эксплуатации. Обычно рекомендуется проходить ТО каждые 10-15 тысяч км пробега или раз в год (в зависимости от того, что наступит раньше). Для точных рекомендаций обратитесь к руководству по эксплуатации вашего автомобиля.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>Какие марки автомобилей вы обслуживаете?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Мы работаем со всеми марками автомобилей: от отечественных до премиальных европейских, азиатских и американских марок. Наши специалисты имеют опыт работы с различными моделями и могут подобрать оптимальное решение для вашего автомобиля.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>Используете ли вы оригинальные запчасти?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Мы работаем как с оригинальными запчастями, так и с качественными аналогами от проверенных производителей. При выборе запчастей мы всегда консультируем клиента, объясняя преимущества и недостатки каждого варианта, чтобы вы могли принять осознанное решение.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>Даете ли вы гарантию на работы?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Да, мы предоставляем гарантию на все выполненные работы. Срок гарантии зависит от вида работ и используемых запчастей (обычно от 3 до 12 месяцев). Гарантийные обязательства оформляются документально.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>Можно ли получить консультацию онлайн?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Да, наши специалисты готовы проконсультировать вас по телефону, через мессенджеры или электронную почту. Для точной диагностики некоторых проблем может потребоваться очный осмотр автомобиля.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Статистика -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item fade-in">
+                <div class="stat-number" data-count="1500">0</div>
+                <div class="stat-text">Обслужено авто</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number" data-count="15">0</div>
+                <div class="stat-text">Лет опыта</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number" data-count="50">0</div>
+                <div class="stat-text">Довольных клиентов</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number" data-count="12">0</div>
+                <div class="stat-text">Специалистов</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блог -->
+    <section class="blog">
+        <h2 class="section-title">Полезные <span>статьи</span></h2>
+        <div class="blog-container">
+            <div class="blog-post fade-in">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Статья 1">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-date">15 мая 2023</div>
+                    <h3>Как часто нужно менять масло в двигателе?</h3>
+                    <p>Узнайте о факторах, влияющих на периодичность замены моторного масла, и как правильно подобрать масло для вашего автомобиля.</p>
+                    <a href="#" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="blog-post fade-in">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1551830820-330a71b99659?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Статья 2">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-date">10 мая 2023</div>
+                    <h3>Признаки износа подвески автомобиля</h3>
+                    <p>Какие симптомы указывают на необходимость проверки ходовой части и когда стоит обратиться к специалистам для диагностики.</p>
+                    <a href="#" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="blog-post fade-in">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Статья 3">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-date">5 мая 2023</div>
+                    <h3>Подготовка автомобиля к летнему сезону</h3>
+                    <p>Какие работы необходимо выполнить, чтобы ваш автомобиль был готов к жаркой погоде и длительным поездкам.</p>
+                    <a href="#" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Наши <span>контакты</span></h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Адрес</h3>
+                        <p>г. Москва, ул. Автозаводская, д. 23</p>
+                    </div>
+                </div>
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Телефон</h3>
+                        <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                    </div>
+                </div>
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Email</h3>
+                        <a href="mailto:info@proautoservice.ru">info@proautoservice.ru</a>
+                    </div>
+                </div>
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Часы работы</h3>
+                        <p>Пн-Пт: 9:00 - 20:00</p>
+                        <p>Сб-Вс: 10:00 - 18:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form fade-in">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Карта -->
+    <section class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.3727899248037!2d37.61531031593095!3d55.75202398055313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7c347d506f52311!2z0JrRgNCw0YHQvdC-0Y_RgNGB0LosINCc0L7RgdC60LLQsA!5e0!3m2!1sru!2sru!4v1620000000000!5m2!1sru!2sru" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2 class="animate__animated animate__fadeIn">Готовы записаться на обслуживание?</h2>
+        <p class="animate__animated animate__fadeIn">Оставьте заявку прямо сейчас и получите скидку 10% на первый визит!</p>
+        <a href="#contact" class="btn animate__animated animate__fadeIn">Записаться онлайн</a>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>ProAutoService</h3>
+                <p>Профессиональный автосервис с многолетним опытом работы. Качественный ремонт и обслуживание автомобилей любых марок.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Услуги</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Диагностика</a></li>
+                    <li><a href="#">Техническое обслуживание</a></li>
+                    <li><a href="#">Ремонт двигателя</a></li>
+                    <li><a href="#">Ремонт ходовой части</a></li>
+                    <li><a href="#">Ремонт КПП</a></li>
+                    <li><a href="#">Кузовной ремонт</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Быстрые ссылки</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#portfolio">Портфолио</a></li>
+                    <li><a href="#team">Команда</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Контакты</h3>
+                <p><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Автозаводская, д. 23</p>
+                <p><i class="fas fa-phone-alt"></i> +7 (495) 123-45-67</p>
+                <p><i class="fas fa-envelope"></i> info@proautoservice.ru</p>
+                <p><i class="fas fa-clock"></i> Пн-Пт: 9:00 - 20:00, Сб-Вс: 10:00 - 18:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 ProAutoService. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Кнопка вверх -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Анимация появления элементов при скролле
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // Слайдер отзывов
+        const testimonialSlider = document.getElementById('testimonialSlider');
+        const sliderDots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        
+        const showSlide = (index) => {
+            testimonialSlider.scrollTo({
+                left: testimonialSlider.offsetWidth * index,
+                behavior: 'smooth'
+            });
+            
+            sliderDots.forEach(dot => dot.classList.remove('active'));
+            sliderDots[index].classList.add('active');
+            currentSlide = index;
+        };
+        
+        sliderDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = parseInt(dot.getAttribute('data-slide'));
+                showSlide(slideIndex);
+            });
+        });
+        
+        // Автоматическая смена слайдов
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % sliderDots.length;
+            showSlide(currentSlide);
+        }, 5000);
+        
+        // Анимация счетчиков статистики
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsSection = document.querySelector('.stats');
+        let statsAnimated = false;
+        
+        const animateStats = () => {
+            const statsTop = statsSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (statsTop < windowHeight - 100 && !statsAnimated) {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-count'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    
+                    const updateNumber = () => {
+                        current += step;
+                        if (current < target) {
+                            stat.textContent = Math.floor(current);
+                            requestAnimationFrame(updateNumber);
+                        } else {
+                            stat.textContent = target;
+                        }
+                    };
+                    
+                    updateNumber();
+                });
+                
+                statsAnimated = true;
+            }
+        };
+        
+        window.addEventListener('scroll', animateStats);
+        window.addEventListener('load', animateStats);
+        
+        // FAQ аккордеон
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Закрываем все открытые элементы
+                faqItems.forEach(faqItem => {
+                    if (faqItem !== item && faqItem.classList.contains('active')) {
+                        faqItem.classList.remove('active');
+                    }
+                });
+                
+                // Открываем/закрываем текущий элемент
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Кнопка "наверх"
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Обработка формы
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Здесь можно добавить код для отправки формы
+            alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
